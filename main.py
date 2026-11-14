@@ -82,9 +82,10 @@ def initialize_database() -> None:
         count = connection.execute("SELECT COUNT(*) AS count FROM tasks").fetchone()["count"]
         if count == 0:
             # Seed once; the named Docker volume keeps these rows through restarts.
-            connection.executemany(
-                "INSERT INTO tasks (title, done) VALUES (%s, %s)", SEED_TASKS
-            )
+            with connection.cursor() as cursor:
+                cursor.executemany(
+                    "INSERT INTO tasks (title, done) VALUES (%s, %s)", SEED_TASKS
+                )
 
 
 @app.get("/", summary="Describe the Task API")
@@ -194,3 +195,4 @@ def delete_task(task_id: int):
         if cursor.rowcount == 0:
             return error("Task not found", 404)
     return Response(status_code=204)
+
