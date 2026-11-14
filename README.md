@@ -62,7 +62,7 @@ I ran that command from this project folder, where `compose.yaml` is located. Af
 
 ## Test screenshot
 
-I’ll add my terminal and Postgres test screenshot here.
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/1d1616d5-1c25-4b6d-a346-bad9a063dee8" />
 
 <!-- Add the screenshot here as assets/a3-postgres-test.png when it is available in this project folder. -->
 
